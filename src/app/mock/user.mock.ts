@@ -1,6 +1,7 @@
 
 import { HttpResponse, HttpRequest } from '@angular/common/http';
 import { UserInterface } from '../gamify/model/user.interface';
+import { ResponseDto } from '../gamify/model/responseDto.interface';
 
 
 const userList: UserInterface[] = [
@@ -15,15 +16,21 @@ const userList: UserInterface[] = [
   }
 ];
 
-const getUserList = (request: HttpRequest<any>): HttpResponse<any> => {
+const responseWithUserList: ResponseDto<UserInterface[]> = {
+  status: 'SUCCEED',
+  message: 'the mock works, titi is awesome',
+  payload: userList
+};
+
+const getUserListResponseMock = (request: HttpRequest<any>): HttpResponse<any> => {
  return new HttpResponse(
        {
          status: 200,
-         body: userList
+         body: responseWithUserList
       }
     );
 };
 
 export const listeners = [
-  { url: 'user/all', methods: 'GET', name: 'getUserList', response: getUserList }
+  { url: 'user/all', methods: 'GET', name: 'getUserList', response: getUserListResponseMock }
 ];

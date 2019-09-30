@@ -21,9 +21,10 @@ import { MockHttpInterceptor } from './interceptor/mock-http.interceptor';
   providers: [
     HttpClient,
     environment.mock.enable ? {
-    provide: HTTP_INTERCEPTORS,
-   useClass: MockHttpInterceptor,
-   multi: true } : []
+      provide: HTTP_INTERCEPTORS,
+      useClass: MockHttpInterceptor,
+      multi: true
+    } : []
   ],
   bootstrap: [AppComponent]
 })
