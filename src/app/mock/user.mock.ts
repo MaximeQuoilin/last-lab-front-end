@@ -1,11 +1,12 @@
 
 import { HttpResponse, HttpRequest } from '@angular/common/http';
+import { UserInterface } from '../gamify/model/user.interface';
 
 
 const userList: UserInterface[] = [
   {
     name: 'Ticus',
-    emai: 'ticuspoulo@ticus.com'
+    email: 'ticuspoulo@ticus.com'
 
   },
   {
