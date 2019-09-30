@@ -3,6 +3,8 @@ import { GameService } from '../../service/game.service';
 import { GameInterface } from '../../model/game.interface';
 import { UserBusiness } from '../../model/business/user.business';
 import { UserService } from '../../service/user.service';
+import { ResponseDto } from '../../model/responseDto.interface';
+import { UserInterface } from '../../model/user.interface';
 
 @Component({
   selector: 'app-game-container',
@@ -13,6 +15,7 @@ export class GamifyContainerComponent implements OnInit {
 
   games: GameInterface[];
   users: UserBusiness[];
+  userMock: UserInterface[];
 
   constructor(private gameService: GameService, private userService: UserService) { }
 
@@ -34,10 +37,11 @@ export class GamifyContainerComponent implements OnInit {
   getAllUsers() {
 
     this.userService.getAllUsers().subscribe((users: UserBusiness[]) => {
+      console.log('je suis dans le container', users);
       this.users = users;
 
     });
   }
 
-
 }
+

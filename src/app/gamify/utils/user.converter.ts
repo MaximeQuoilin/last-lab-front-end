@@ -6,7 +6,7 @@ export class UserConverter {
   public static fromDTO(user: UserInterface): UserBusiness {
     return new UserBusiness(
 
-      user.name,
+      user.username,
       user.email
 
     );

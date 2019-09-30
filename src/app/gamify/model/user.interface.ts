@@ -1,8 +1,6 @@
-import { GameInterface } from './game.interface';
-
 export class UserInterface {
 
-  name: string;
-  email?: string;
+  username: string;
+  email: string;
 
 }

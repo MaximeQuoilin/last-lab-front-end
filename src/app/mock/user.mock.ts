@@ -1,15 +1,16 @@
 
 import { HttpResponse, HttpRequest } from '@angular/common/http';
+import { UserInterface } from '../gamify/model/user.interface';
 
 
 const userList: UserInterface[] = [
   {
-    name: 'Ticus',
-    emai: 'ticuspoulo@ticus.com'
+    username: 'Ticus',
+    email: 'ticuspoulo@ticus.com'
 
   },
   {
-    name: 'Maximus',
+    username: 'Maximus',
     email: 'maximus@coliseum.com'
   }
 ];
@@ -24,5 +25,5 @@ const getUserList = (request: HttpRequest<any>): HttpResponse<any> => {
 };
 
 export const listeners = [
-  { url: 'api/user', methods: 'GET', name: 'getUserList', response: getUserList }
+  { url: 'user/all', methods: 'GET', name: 'getUserList', response: getUserList }
 ];
