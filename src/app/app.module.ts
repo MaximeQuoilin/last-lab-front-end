@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameListModule } from './game-list/game-list.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { GameListModule } from './game-list/game-list.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    GameListModule
+    GameListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
