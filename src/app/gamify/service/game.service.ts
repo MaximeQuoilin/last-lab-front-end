@@ -18,4 +18,6 @@ getAllGames(): Observable<GameInterface[]> {
   return this.http.get<ResponseDto<GameInterface[]>>(`${environment.baseUrl}videogame/all`)
     .pipe(map(response => response.payload));
   }
+
+  // TODO Pas oublier de changer l'interface en business
 }

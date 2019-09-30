@@ -1,5 +1,3 @@
-import { GameInterface } from '../game.interface';
-
 export class GameBusiness {
 
   public readonly id: number;
@@ -22,13 +20,5 @@ export class GameBusiness {
     this.pegi = pegi;
   }
 
-  public static fromDTO(game: GameInterface): GameBusiness {
-    return new GameBusiness(
-      game.id,
-      game.name,
-      game.description,
-      game.pegi
-    );
-  }
 }
 
