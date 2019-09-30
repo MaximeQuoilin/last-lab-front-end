@@ -1,7 +1,7 @@
-export interface ResponseDto {
+export interface ResponseDto <T> {
 
-  payload;
-  status;
-  message;
+  payload: T;
+  status: string;
+  message: string;
 
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../service/game.service';
 import { GameInterface } from '../../model/game.interface';
+import { ResponseDto } from '../../model/responseDto.interface';
 
 @Component({
   selector: 'app-game-list-container',
@@ -24,7 +25,7 @@ getAllGames() {
   this.gameService.getAllGames().subscribe((games: GameInterface[]) => {
     console.log(typeof games);
     console.log(games);
-    this.games = games.payload;
+    this.games = games;
     console.log('games vaut ', this.games);
 
   });
