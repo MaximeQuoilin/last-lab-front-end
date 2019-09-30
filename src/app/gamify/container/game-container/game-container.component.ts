@@ -4,11 +4,11 @@ import { GameInterface } from '../../model/game.interface';
 import { ResponseDto } from '../../model/responseDto.interface';
 
 @Component({
-  selector: 'app-game-list-container',
-  templateUrl: './game-list-container.component.html',
-  styleUrls: ['./game-list-container.component.scss']
+  selector: 'app-game-container',
+  templateUrl: './game-container.component.html',
+  styleUrls: ['./game-container.component.scss']
 })
-export class GameListContainerComponent implements OnInit {
+export class GamifyContainerComponent implements OnInit {
 
   games: GameInterface[];
 

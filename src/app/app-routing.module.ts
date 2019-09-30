@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GameListModule } from './game-list/game-list.module';
+import { GamifyModule } from './gamify/gamify.module';
 
 
 const routes: Routes = [
-  {path: '', loadChildren: () => import('./game-list/game-list.module').then(m => m.GameListModule)}
+  {path: '', loadChildren: () => import('./gamify/gamify.module').then(m => m.GamifyModule)}
 ];
 
 @NgModule({
