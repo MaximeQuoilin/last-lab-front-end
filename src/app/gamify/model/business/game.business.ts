@@ -5,7 +5,6 @@ export class GameBusiness {
   public readonly id: number;
   public name: string;
   public description: string;
-  public rating: number;
   public pegi: string;
 
   constructor(
@@ -13,7 +12,6 @@ export class GameBusiness {
     id: number,
     name: string,
     description: string,
-    rating: number,
     pegi: string,
 
   ) {
@@ -21,7 +19,6 @@ export class GameBusiness {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.rating = rating;
     this.pegi = pegi;
   }
 
@@ -30,7 +27,6 @@ export class GameBusiness {
       game.id,
       game.name,
       game.description,
-      game.rating,
       game.pegi
     );
   }
