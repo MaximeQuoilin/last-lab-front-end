@@ -1,0 +1,37 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+  <div>
+    <label for="name">Name : </label>
+    <input type="text" id="name" formControlName="name" required>
+
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+
+      <div *ngIf="name.errors.required">
+        Name is required.
+      </div>
+
+      <div *ngIf="name.errors.pattern">
+        Format is incorrect.
+      </div>
+
+    </div>
+
+    <div>
+      <label for="email">Email : </label>
+      <input type="text" id="email" formControlName="email">
+    </div>
+
+    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+
+      <div *ngIf="email.errors.pattern">
+        Email format is incorrect.
+      </div>
+
+      <div *ngIf="email.errors.required">
+        Email is required.
+      </div>
+
+    </div>
+  </div>
+  <button [disabled]="!userForm.valid">Add</button>
+</form>

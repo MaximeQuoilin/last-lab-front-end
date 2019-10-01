@@ -17,6 +17,7 @@ import { MockHttpInterceptor } from './interceptor/mock-http.interceptor';
     AppRoutingModule,
     GamifyModule,
     HttpClientModule,
+
   ],
   providers: [
     HttpClient,

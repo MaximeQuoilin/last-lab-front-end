@@ -7,21 +7,26 @@ import { ListDetailGameComponent } from './component/list-detail-game/list-detai
 import { ListUsersComponent } from './component/list-users/list-users.component';
 import { GameService } from './service/game.service';
 import { UserService } from './service/user.service';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserFormComponent } from './component/user-form/user-form.component';
 
 
 @NgModule({
   declarations: [
     GamifyContainerComponent,
     ListDetailGameComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    UserFormComponent
   ],
   imports: [
     CommonModule,
-    GamifyRoutingModule
+    GamifyRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     ListDetailGameComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    UserFormComponent
   ],
   providers: [
     GameService,
