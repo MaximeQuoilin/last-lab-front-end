@@ -14,6 +14,9 @@ export class GamifyContainerComponent implements OnInit {
   games: GameBusiness[];
   users: UserBusiness[];
 
+  displayGames = true;
+  displayUsers = false;
+
   constructor(private gameService: GameService, private userService: UserService) { }
 
   ngOnInit() {
@@ -37,6 +40,20 @@ export class GamifyContainerComponent implements OnInit {
       this.users = users;
 
     });
+  }
+
+  switchStateElementToDisplay(isGameButton: boolean) {
+
+    if (isGameButton) {
+
+      this.displayGames = true;
+      this.displayUsers = false;
+
+    } else {
+
+      this.displayGames = false;
+      this.displayUsers = true;
+    }
   }
 
 }

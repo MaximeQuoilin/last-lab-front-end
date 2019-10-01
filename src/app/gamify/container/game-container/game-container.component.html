@@ -1,11 +1,16 @@
-<button>GAMES</button>
-<button>USERS</button>
+<button
+(click)="switchStateElementToDisplay(true)">
+GAMES</button>
+
+<button
+(click)="switchStateElementToDisplay(false)">
+USERS</button>
 
 
-<app-list-detail-game
- [gamesListFromContainer]="games">
-  </app-list-detail-game>
+<app-list-detail-game *ngIf=displayGames
+ [gamesListFromContainer]="games"
+ >
+</app-list-detail-game>
 
-<app-list-users
-[usersListFromContainer]="users">
+<app-list-users *ngIf=displayUsers [usersListFromContainer]="users">
 </app-list-users>
