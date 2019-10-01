@@ -8,7 +8,7 @@ import { GameBusiness } from '../../model/business/game.business';
 })
 export class ListDetailGameComponent implements OnInit {
 
-  @Input() gamesListFromDispatcher: GameBusiness[];
+  @Input() gamesListFromContainer: GameBusiness[];
 
   constructor() { }
 

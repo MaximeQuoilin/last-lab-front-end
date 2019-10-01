@@ -7,15 +7,13 @@ import { ListDetailGameComponent } from './component/list-detail-game/list-detai
 import { ListUsersComponent } from './component/list-users/list-users.component';
 import { GameService } from './service/game.service';
 import { UserService } from './service/user.service';
-import { DispatcherComponent } from './component/dispatcher/dispatcher.component';
 
 
 @NgModule({
   declarations: [
     GamifyContainerComponent,
     ListDetailGameComponent,
-    ListUsersComponent,
-    DispatcherComponent
+    ListUsersComponent
   ],
   imports: [
     CommonModule,
@@ -23,8 +21,7 @@ import { DispatcherComponent } from './component/dispatcher/dispatcher.component
   ],
   exports: [
     ListDetailGameComponent,
-    ListUsersComponent,
-    DispatcherComponent
+    ListUsersComponent
   ],
   providers: [
     GameService,
