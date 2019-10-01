@@ -1,9 +1,19 @@
 import { UserBusiness } from '../model/business/user.business';
-import { UserInterface } from '../model/user.interface';
+import { UserDTO } from '../model/userDTO.interface';
 
 export class UserConverter {
 
-  public static fromDTO(user: UserInterface): UserBusiness {
+  static toDTO(user: UserBusiness): UserDTO {
+
+    return new UserDTO(
+
+      user.name,
+      user.email
+
+    );
+  }
+
+  public static fromDTO(user: UserDTO): UserBusiness {
     return new UserBusiness(
 
       user.username,
@@ -12,8 +22,8 @@ export class UserConverter {
     );
   }
 
-  public static fromDTOArray(usersList: UserInterface[]): UserBusiness[] {
+  public static fromDTOArray(usersList: UserDTO[]): UserBusiness[] {
 
-      return usersList.map((user: UserInterface) => UserConverter.fromDTO(user));
+      return usersList.map((user: UserDTO) => UserConverter.fromDTO(user));
   }
 }

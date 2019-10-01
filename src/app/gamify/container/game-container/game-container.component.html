@@ -12,5 +12,7 @@ USERS</button>
  >
 </app-list-detail-game>
 
-<app-list-users *ngIf=displayUsers [usersListFromContainer]="users">
+<app-list-users
+*ngIf=displayUsers [usersListFromContainer]="users"
+(saveUser)="postUser($event)">
 </app-list-users>

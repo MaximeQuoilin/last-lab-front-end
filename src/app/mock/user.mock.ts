@@ -1,10 +1,10 @@
 
 import { HttpResponse, HttpRequest } from '@angular/common/http';
-import { UserInterface } from '../gamify/model/user.interface';
+import { UserDTO } from '../gamify/model/userDTO.interface';
 import { ResponseDto } from '../gamify/model/responseDto.interface';
 
 
-const userList: UserInterface[] = [
+const userList: UserDTO[] = [
   {
     username: 'Ticus',
     email: 'ticuspoulo@ticus.com'
@@ -16,7 +16,7 @@ const userList: UserInterface[] = [
   }
 ];
 
-const responseWithUserList: ResponseDto<UserInterface[]> = {
+const responseWithUserList: ResponseDto<UserDTO[]> = {
   status: 'SUCCEED',
   message: 'the mock works, titi is awesome',
   payload: userList

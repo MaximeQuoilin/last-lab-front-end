@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserInterface } from '../model/user.interface';
+import { UserDTO } from '../model/userDTO.interface';
 import { ResponseDto } from '../model/responseDto.interface';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
@@ -17,8 +17,15 @@ export class UserService {
 
   }
 
+  postUser(user: UserBusiness): Observable<boolean> {
+
+    return this.http.post<ResponseDto<void>>(`${environment.baseUrl}user`, UserConverter.toDTO(user) )
+    .pipe(map((response: ResponseDto<void>) => response.status === 'SUCCESS' ? true : false));
+
+  }
+
   getAllUsers(): Observable<UserBusiness[]> {
-    return this.http.get<ResponseDto<UserInterface[]>>(`${environment.baseUrl}user/all`)
-      .pipe(map((response: ResponseDto<UserInterface[]>) => UserConverter.fromDTOArray(response.payload)));
+    return this.http.get<ResponseDto<UserDTO[]>>(`${environment.baseUrl}user/all`)
+      .pipe(map((response: ResponseDto<UserDTO[]>) => UserConverter.fromDTOArray(response.payload)));
   }
 }

@@ -35,9 +35,11 @@ export class UserFormComponent implements OnInit {
     if (this.userForm.valid) {
 
       this.newUser = {
+
         name: this.userForm.value.name,
         email: this.userForm.value.email
       };
+
       this.saveUser.emit(this.newUser);
     }
   }

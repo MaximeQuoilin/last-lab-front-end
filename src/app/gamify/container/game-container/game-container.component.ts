@@ -42,6 +42,16 @@ export class GamifyContainerComponent implements OnInit {
     });
   }
 
+  postUser(user: UserBusiness) {
+
+    this.userService.postUser(user).subscribe((isAdded: boolean) => {
+      if (isAdded) {
+        this.getAllUsers();
+      }
+    });
+
+  }
+
   switchStateElementToDisplay(isGameButton: boolean) {
 
     if (isGameButton) {
