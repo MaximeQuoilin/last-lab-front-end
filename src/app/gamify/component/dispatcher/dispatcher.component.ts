@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GameInterface } from '../../model/game.interface';
 import { UserBusiness } from '../../model/business/user.business';
+import { GameBusiness } from '../../model/business/game.business';
 
 @Component({
   selector: 'app-dispatcher',
@@ -9,7 +9,7 @@ import { UserBusiness } from '../../model/business/user.business';
 })
 export class DispatcherComponent implements OnInit {
 
-  @Input() gamesListFromContainer: GameInterface[];
+  @Input() gamesListFromContainer: GameBusiness[];
   @Input() usersListFromContainer: UserBusiness[];
 
 

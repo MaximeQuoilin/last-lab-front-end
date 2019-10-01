@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { GameInterface } from '../../model/game.interface';
+import { GameBusiness } from '../../model/business/game.business';
 
 @Component({
   selector: 'app-list-detail-game',
@@ -8,7 +8,7 @@ import { GameInterface } from '../../model/game.interface';
 })
 export class ListDetailGameComponent implements OnInit {
 
-  @Input() gamesListFromDispatcher: GameInterface[];
+  @Input() gamesListFromDispatcher: GameBusiness[];
 
   constructor() { }
 

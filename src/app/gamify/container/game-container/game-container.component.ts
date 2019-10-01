@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GameService } from '../../service/game.service';
-import { GameInterface } from '../../model/game.interface';
 import { UserBusiness } from '../../model/business/user.business';
 import { UserService } from '../../service/user.service';
-import { UserInterface } from '../../model/user.interface';
+import { GameBusiness } from '../../model/business/game.business';
 
 @Component({
   selector: 'app-game-container',
@@ -12,7 +11,7 @@ import { UserInterface } from '../../model/user.interface';
 })
 export class GamifyContainerComponent implements OnInit {
 
-  games: GameInterface[];
+  games: GameBusiness[];
   users: UserBusiness[];
 
   constructor(private gameService: GameService, private userService: UserService) { }
@@ -26,7 +25,7 @@ export class GamifyContainerComponent implements OnInit {
 
   getAllGames() {
 
-    this.gameService.getAllGames().subscribe((games: GameInterface[]) => {
+    this.gameService.getAllGames().subscribe((games: GameBusiness[]) => {
       this.games = games;
 
     });
@@ -35,7 +34,6 @@ export class GamifyContainerComponent implements OnInit {
   getAllUsers() {
 
     this.userService.getAllUsers().subscribe((users: UserBusiness[]) => {
-      console.log('je suis dans le container', users);
       this.users = users;
 
     });
