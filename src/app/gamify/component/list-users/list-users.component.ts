@@ -8,7 +8,7 @@ import { UserBusiness } from '../../model/business/user.business';
 })
 export class ListUsersComponent implements OnInit {
 
-  @Input() usersList: UserBusiness[];
+  @Input() usersListFromDispatcher: UserBusiness[];
 
   constructor() { }
 

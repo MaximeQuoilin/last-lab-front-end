@@ -1,7 +1,7 @@
-<app-list-detail-game
- [list]="games">
-  </app-list-detail-game>
+<button>GAMES</button>
+<button>USERS</button>
 
-<app-list-users
-[usersList]="users">
-</app-list-users>
+<app-dispatcher
+[gamesListFromContainer]="games"
+[usersListFromContainer]="users"
+></app-dispatcher>

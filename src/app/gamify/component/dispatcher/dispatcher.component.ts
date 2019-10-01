@@ -9,8 +9,8 @@ import { UserBusiness } from '../../model/business/user.business';
 })
 export class DispatcherComponent implements OnInit {
 
-  @Input() gamesListFromDispatcher: GameInterface[];
-  @Input() usersListFromDispatcher: UserBusiness[];
+  @Input() gamesListFromContainer: GameInterface[];
+  @Input() usersListFromContainer: UserBusiness[];
 
 
   constructor() { }

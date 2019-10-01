@@ -8,7 +8,7 @@ import { GameInterface } from '../../model/game.interface';
 })
 export class ListDetailGameComponent implements OnInit {
 
-  @Input() gamesList: GameInterface[];
+  @Input() gamesListFromDispatcher: GameInterface[];
 
   constructor() { }
 
