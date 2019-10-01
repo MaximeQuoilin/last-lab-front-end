@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { GamifyModule } from './gamify/gamify.module';
 
 const routes: Routes = [
   {path: '', redirectTo: '/gamify' , pathMatch: 'full'},
