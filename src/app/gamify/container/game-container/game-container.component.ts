@@ -54,8 +54,11 @@ export class GamifyContainerComponent implements OnInit {
   }
 
   public deleteUser(userId: number) {
-    console.log('je suis la personne à delete dans le container', userId);
-    this.userService.deleteUser(userId).subscribe(this.getAllUsers);
+    this.userService.deleteUser(userId).subscribe((isDeleted: boolean) => {
+      if (isDeleted) {
+        this.getAllUsers();
+      }
+    });
   }
 
   switchStateElementToDisplay(isGameButton: boolean) {

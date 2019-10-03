@@ -19,14 +19,14 @@ export class UserService {
 
   postUser(user: UserBusiness): Observable<boolean> {
 
-    return this.http.post<ResponseDto<void>>(`${environment.baseUrl}user`, UserConverter.toDTO(user) )
+    return this.http.post<ResponseDto<void>>(`${environment.baseUrl}user`, UserConverter.toDTO(user))
     .pipe(map((response: ResponseDto<void>) => response.status === 'SUCCESS' ? true : false));
 
   }
 
-  deleteUser(userId: any) {
-    console.log('je suis dans le service user pour delete', userId);
-    return this.http.delete<ResponseDto<void>>(`${environment.baseUrl}user`, userId);
+  deleteUser(userId: number): Observable<boolean> {
+    return this.http.delete<ResponseDto<void>>(`${environment.baseUrl}user/${userId}`)
+    .pipe(map((response: ResponseDto<void>) => response.status === 'SUCCESS' ? true : false));
   }
 
   getAllUsers(): Observable<UserBusiness[]> {
