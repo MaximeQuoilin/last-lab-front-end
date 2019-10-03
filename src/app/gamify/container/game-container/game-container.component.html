@@ -13,7 +13,8 @@
 <div *ngIf=displayUsers>
     <app-list-users
     [usersListFromContainer]="users"
-    (saveUser)="postUser($event)">
+    (saveUser)="postUser($event)"
+    (deleteUserFromList)="deleteUser($event)">
     </app-list-users>
 
   <button (click)="displayForm()">REGISTER NEW USER</button>

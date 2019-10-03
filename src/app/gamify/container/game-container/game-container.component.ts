@@ -45,13 +45,17 @@ export class GamifyContainerComponent implements OnInit {
 
   public postUser(user: any) {
 
-    console.log('JE SUIS DANS LE CONTAINER', user);
     this.userService.postUser(user).subscribe((isAdded: boolean) => {
       if (isAdded) {
         this.getAllUsers();
       }
     });
 
+  }
+
+  public deleteUser(userId: number) {
+    console.log('je suis la personne à delete dans le container', userId);
+    this.userService.deleteUser(userId).subscribe(this.getAllUsers);
   }
 
   switchStateElementToDisplay(isGameButton: boolean) {

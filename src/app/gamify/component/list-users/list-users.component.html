@@ -3,6 +3,7 @@
     <li *ngFor="let user of usersListFromContainer">
       <div>Nom : {{user.name}}</div>
       <div>Email : {{user.email}}</div>
+      <button (click) = "deleteUser(user.id)">X</button>
     </li>
   </ul>
 </div>

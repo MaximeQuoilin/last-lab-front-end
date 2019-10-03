@@ -24,6 +24,11 @@ export class UserService {
 
   }
 
+  deleteUser(userId: any) {
+    console.log('je suis dans le service user pour delete', userId);
+    return this.http.delete<ResponseDto<void>>(`${environment.baseUrl}user`, userId);
+  }
+
   getAllUsers(): Observable<UserBusiness[]> {
     return this.http.get<ResponseDto<UserDTO[]>>(`${environment.baseUrl}user/all`)
       .pipe(map((response: ResponseDto<UserDTO[]>) => UserConverter.fromDTOArray(response.payload)));
