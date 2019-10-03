@@ -1,25 +1,32 @@
-<button (click)="switchStateElementToDisplay(true)">
-  GAMES</button>
+<div class="wrapper">
+  <button (click)="switchStateElementToDisplay(true)">
+    GAMES</button>
 
-<button (click)="switchStateElementToDisplay(false)">
-  USERS</button>
+  <button (click)="switchStateElementToDisplay(false)">
+    USERS</button>
+</div>
 
+<div class = "leftFrame">
+  <app-list-detail-game
+    *ngIf=displayGames
+    [gamesListFromContainer]="games"
+    [borrowerFromContainer]="borrower"
+    (selected)="showHires($event)">
+  </app-list-detail-game>
+</div>
 
-<app-list-detail-game
-  *ngIf=displayGames
-  [gamesListFromContainer]="games">
-</app-list-detail-game>
+<div class = "rightFrame">
+  <div *ngIf=displayUsers>
+      <app-list-users
+      [usersListFromContainer]="users"
+      (saveUser)="postUser($event)"
+      (deleteUserFromList)="deleteUser($event)">
+      </app-list-users>
 
-<div *ngIf=displayUsers>
-    <app-list-users
-    [usersListFromContainer]="users"
-    (saveUser)="postUser($event)"
-    (deleteUserFromList)="deleteUser($event)">
-    </app-list-users>
-
-  <button (click)="displayForm()">REGISTER NEW USER</button>
-  <app-user-form
-    *ngIf=isFormDisplayed
-    (saveUserFromForm)="postUser($event)">
-  </app-user-form>
+    <button (click)="displayForm()">REGISTER NEW USER</button>
+    <app-user-form
+      *ngIf=isFormDisplayed
+      (saveUserFromForm)="postUser($event)">
+    </app-user-form>
+  </div>
 </div>

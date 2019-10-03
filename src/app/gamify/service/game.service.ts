@@ -7,20 +7,26 @@ import { environment } from 'src/environments/environment';
 import { ResponseDto } from '../model/responseDto.interface';
 import { GameBusiness } from '../model/business/game.business';
 import { GameConverter } from '../utils/game.converter';
+import { UserDTO } from '../model/userDTO.interface';
+import { UserConverter } from '../utils/user.converter';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GameService {
 
-constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
-}
-getAllGames(): Observable<GameBusiness[]> {
-  return this.http.get<ResponseDto<GameInterface[]>>(`${environment.baseUrl}videogame/all`)
-    .pipe(map((response: ResponseDto<GameInterface[]>) => GameConverter.fromDTOArray(response.payload)));
+  }
+  getAllGames(): Observable<GameBusiness[]> {
+    return this.http.get<ResponseDto<GameInterface[]>>(`${environment.baseUrl}videogame/all`)
+      .pipe(map((response: ResponseDto<GameInterface[]>) => GameConverter.fromDTOArray(response.payload)));
   }
 
-  // TODO Pas oublier de changer l'interface en business
+  getBorrowerByGameId(gameId: number): Observable<any> {
+    return this.http.get<ResponseDto<UserDTO>>(`${environment.baseUrl}user/${gameId}/owners`)
+      .pipe(map((response: ResponseDto<UserDTO>) => UserConverter.fromDTO(response.payload)));
+  }
+
 }
 

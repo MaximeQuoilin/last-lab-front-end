@@ -13,6 +13,7 @@ export class GamifyContainerComponent implements OnInit {
 
   games: GameBusiness[];
   users: UserBusiness[];
+  borrower: UserBusiness;
 
   displayGames = true;
   displayUsers = false;
@@ -61,22 +62,30 @@ export class GamifyContainerComponent implements OnInit {
     });
   }
 
-  switchStateElementToDisplay(isGameButton: boolean) {
+  showHires(selectedGame: number) {
 
-    if (isGameButton) {
+    this.gameService.getBorrowerByGameId(selectedGame).subscribe((user: UserBusiness) => {
+      this.gameService.getBorrowerByGameId(selectedGame);
+    });
 
-      this.displayGames = true;
-      this.displayUsers = false;
-
-    } else {
-
-      this.displayGames = false;
-      this.displayUsers = true;
-    }
   }
+
+switchStateElementToDisplay(isGameButton: boolean) {
+
+  if (isGameButton) {
+
+    this.displayGames = true;
+    this.displayUsers = false;
+
+  } else {
+
+    this.displayGames = false;
+    this.displayUsers = true;
+  }
+}
 
   public displayForm() {
-    this.isFormDisplayed = !this.isFormDisplayed;
-  }
+  this.isFormDisplayed = !this.isFormDisplayed;
+}
 }
 

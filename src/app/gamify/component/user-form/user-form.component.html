@@ -6,11 +6,11 @@
 
     <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
 
-      <div *ngIf="name.errors?.required">
+      <div class = "validationError" *ngIf="name.errors?.required">
         Name is required.
       </div>
 
-      <div *ngIf="name.errors?.pattern">
+      <div class = "validationError" *ngIf="name.errors?.pattern">
         Format is incorrect.
       </div>
 
@@ -21,13 +21,21 @@
       <input type="text" id="email" formControlName="email">
     </div>
 
+    <div>
+      <label>Jeu(x) que je lui prête</label>
+      <select>
+        <option>Jeu 1</option>
+        <option>Jeu 2</option>
+      </select>
+    </div>
+
     <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
 
-      <div *ngIf="email.errors?.pattern">
+      <div class = "validationError" *ngIf="email.errors?.pattern">
         Email format is incorrect.
       </div>
 
-      <div *ngIf="email.errors?.required">
+      <div class = "validationError" *ngIf="email.errors?.required">
         Email is required.
       </div>
 

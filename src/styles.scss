@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+#mainFrame {
+  margin-right: auto;
+  margin-left: auto;
+  width: 500px;
+  background-color: #92a8d1;
+  padding: 5%;
+
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 46px;
+}
+
+.button:hover {
+
+  background-color: #3e8e41;
+  color: white;
+
+}
+
+button {
+
+  background-color: blueviolet; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 2px;
+
+}
+
+#deleteButton {
+
+  font-size: 14px;
+  background-color: #f44336;
+
+}
+
+.validationError {
+  color: red;
+  font-weight: bold;
+
+}
+
+.wrapper {
+  text-align: center;
+}
+
+.rightFrame {
+
+
+}
+
+.leftFrame {
+
+}
+
