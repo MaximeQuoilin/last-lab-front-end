@@ -7,6 +7,7 @@ export class UserConverter {
 
     return new UserDTO(
 
+      user.id,
       user.name,
       user.email
 
@@ -16,6 +17,7 @@ export class UserConverter {
   public static fromDTO(user: UserDTO): UserBusiness {
     return new UserBusiness(
 
+      user.id,
       user.username,
       user.email
 
