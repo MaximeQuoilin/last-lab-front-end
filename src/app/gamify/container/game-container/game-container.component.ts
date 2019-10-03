@@ -16,6 +16,7 @@ export class GamifyContainerComponent implements OnInit {
 
   displayGames = true;
   displayUsers = false;
+  isFormDisplayed = false;
 
   constructor(private gameService: GameService, private userService: UserService) { }
 
@@ -42,8 +43,9 @@ export class GamifyContainerComponent implements OnInit {
     });
   }
 
-  postUser(user: UserBusiness) {
+  public postUser(user: any) {
 
+    console.log('JE SUIS DANS LE CONTAINER', user);
     this.userService.postUser(user).subscribe((isAdded: boolean) => {
       if (isAdded) {
         this.getAllUsers();
@@ -66,5 +68,8 @@ export class GamifyContainerComponent implements OnInit {
     }
   }
 
+  public displayForm() {
+    this.isFormDisplayed = !this.isFormDisplayed;
+  }
 }
 

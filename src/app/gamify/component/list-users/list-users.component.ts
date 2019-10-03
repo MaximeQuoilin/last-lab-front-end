@@ -10,14 +10,9 @@ export class ListUsersComponent implements OnInit {
 
   @Input() usersListFromContainer: UserBusiness[];
 
-  isFormDisplayed = false;
-
   constructor() { }
 
   ngOnInit() {
   }
 
-  public displayForm() {
-    this.isFormDisplayed = !this.isFormDisplayed;
-  }
 }

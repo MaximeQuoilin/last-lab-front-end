@@ -10,7 +10,7 @@ import { EventEmitter } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
-  @Output() saveUser: EventEmitter<UserBusiness> = new EventEmitter<UserBusiness>();
+  @Output() saveUserFromForm: EventEmitter<UserBusiness> = new EventEmitter<UserBusiness>();
 
   userForm: FormGroup;
   newUser: UserBusiness;
@@ -34,13 +34,15 @@ export class UserFormComponent implements OnInit {
 
     if (this.userForm.valid) {
 
+      console.log(this.userForm.value.name);
       this.newUser = {
 
         name: this.userForm.value.name,
         email: this.userForm.value.email
       };
 
-      this.saveUser.emit(this.newUser);
+      this.saveUserFromForm.emit(this.newUser);
+      console.log(this.newUser, ' on submit ts user form');
     }
   }
 

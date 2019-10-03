@@ -1,18 +1,24 @@
-<button
-(click)="switchStateElementToDisplay(true)">
-GAMES</button>
+<button (click)="switchStateElementToDisplay(true)">
+  GAMES</button>
 
-<button
-(click)="switchStateElementToDisplay(false)">
-USERS</button>
+<button (click)="switchStateElementToDisplay(false)">
+  USERS</button>
 
 
-<app-list-detail-game *ngIf=displayGames
- [gamesListFromContainer]="games"
- >
+<app-list-detail-game
+  *ngIf=displayGames
+  [gamesListFromContainer]="games">
 </app-list-detail-game>
 
-<app-list-users
-*ngIf=displayUsers [usersListFromContainer]="users"
-(saveUser)="postUser($event)">
-</app-list-users>
+<div *ngIf=displayUsers>
+    <app-list-users
+    [usersListFromContainer]="users"
+    (saveUser)="postUser($event)">
+    </app-list-users>
+
+  <button (click)="displayForm()">REGISTER NEW USER</button>
+  <app-user-form
+    *ngIf=isFormDisplayed
+    (saveUserFromForm)="postUser($event)">
+  </app-user-form>
+</div>
