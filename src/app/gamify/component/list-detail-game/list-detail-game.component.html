@@ -1,5 +1,5 @@
 <div>
-  <p *ngIf="gamesListFromContainer.length === 0"> Pas de jeux disponibles </p>
+  <p *ngIf="!gamesListFromContainer"> Pas de jeux disponibles </p>
   <ul>
     <li *ngFor="let game of gamesListFromContainer">
       <span (click)='selectGame(game.id)'>

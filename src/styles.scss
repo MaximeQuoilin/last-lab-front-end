@@ -14,13 +14,6 @@ h1 {
   font-size: 46px;
 }
 
-.button:hover {
-
-  background-color: #3e8e41;
-  color: white;
-
-}
-
 button {
 
   background-color: blueviolet; /* Green */
@@ -32,6 +25,13 @@ button {
   display: inline-block;
   font-size: 14px;
   margin: 2px;
+
+}
+
+.button:hover {
+
+  background-color: #3e8e41;
+  color: white;
 
 }
 
@@ -50,14 +50,5 @@ button {
 
 .wrapper {
   text-align: center;
-}
-
-.rightFrame {
-
-
-}
-
-.leftFrame {
-
 }
 

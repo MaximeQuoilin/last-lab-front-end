@@ -24,6 +24,7 @@ export class GameService {
   }
 
   getBorrowerByGameId(gameId: number): Observable<any> {
+    console.log(gameId);
     return this.http.get<ResponseDto<UserDTO>>(`${environment.baseUrl}user/${gameId}/owners`)
       .pipe(map((response: ResponseDto<UserDTO>) => UserConverter.fromDTO(response.payload)));
   }
