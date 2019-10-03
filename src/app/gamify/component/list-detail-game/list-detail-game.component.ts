@@ -21,7 +21,6 @@ export class ListDetailGameComponent implements OnInit {
 
   selectGame(gameId: number) {
     this.selected.emit(gameId);
-    console.log(gameId);
   }
 
 }

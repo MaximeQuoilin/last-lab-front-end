@@ -9,6 +9,7 @@ import { GameBusiness } from '../model/business/game.business';
 import { GameConverter } from '../utils/game.converter';
 import { UserDTO } from '../model/userDTO.interface';
 import { UserConverter } from '../utils/user.converter';
+import { UserBusiness } from '../model/business/user.business';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,16 @@ export class GameService {
       .pipe(map((response: ResponseDto<GameInterface[]>) => GameConverter.fromDTOArray(response.payload)));
   }
 
-  getBorrowerByGameId(gameId: number): Observable<any> {
-    return this.http.get<ResponseDto<UserDTO>>(`${environment.baseUrl}user/${gameId}/owners`)
-      .pipe(map((response: ResponseDto<UserDTO>) => UserConverter.fromDTO(response.payload)));
+  getBorrowerByGame(gameId: number): Observable<UserBusiness> {
+    return this.http.get<ResponseDto<UserDTO>>(`${environment.baseUrl}user/${gameId}/borrower`)
+      .pipe(map((response: ResponseDto<UserDTO>) => {
+        let userBiz = null;
+        const userDTO = response.payload;
+        if (userDTO) {
+          userBiz = UserConverter.fromDTO(userDTO);
+        }
+        return userBiz;
+      }));
   }
 
 }

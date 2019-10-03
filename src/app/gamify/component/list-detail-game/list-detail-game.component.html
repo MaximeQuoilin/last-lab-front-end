@@ -1,17 +1,15 @@
 <div>
   <p *ngIf="gamesListFromContainer?.length === 0"> Pas de jeux disponibles </p>
   <ul>
-    <li *ngFor="let game of gamesListFromContainer">
-      <span (click)='selectGame(game.id)'>
+    <li *ngFor="let game of gamesListFromContainer" (click)="selectGame(game.id)">
         <div>Titre : {{game.name}}</div>
         <div>Description : {{game.description}}</div>
-      </span>
+        <div *ngIf="borrowerFromContainer">
+          Emprunté par: {{borrowerFromContainer.name}}
+        </div>
+        <div *ngIf="borrowerFromContainer === null">
+          Le jeu n'est pas en prêt actuellement
+        </div>
     </li>
   </ul>
 </div>
-<span *ngIf="borrowerFromContainer">
-  {{borrowerFromContainer.name}}
-</span>
-<span *ngIf="!borrowerFromContainer">
-  Le jeu n'est pas en prêt actuellement
-</span>

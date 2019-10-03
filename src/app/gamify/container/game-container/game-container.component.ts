@@ -11,47 +11,42 @@ import { GameBusiness } from '../../model/business/game.business';
 })
 export class GamifyContainerComponent implements OnInit {
 
-  games: GameBusiness[];
-  users: UserBusiness[];
-  borrower: UserBusiness;
+  public games: GameBusiness[];
+  public borrower: UserBusiness;
+  public users: UserBusiness[];
 
-  displayGames = true;
-  displayUsers = false;
-  isFormDisplayed = false;
+  public displayGames = true;
+  public displayUsers = false;
+  public isFormDisplayed = false;
 
-  constructor(private gameService: GameService, private userService: UserService) { }
+  constructor(
+    private gameService: GameService,
+    private userService: UserService
+  ) { }
 
-  ngOnInit() {
-
+  public ngOnInit() {
     this.getAllGames();
     this.getAllUsers();
-
   }
 
-  getAllGames() {
-
+  private getAllGames() {
     this.gameService.getAllGames().subscribe((games: GameBusiness[]) => {
       this.games = games;
-
     });
   }
 
-  getAllUsers() {
-
+  private getAllUsers() {
     this.userService.getAllUsers().subscribe((users: UserBusiness[]) => {
       this.users = users;
-
     });
   }
 
-  public postUser(user: any) {
-
+  public postUser(user: any) { // TODO (any pas bon)
     this.userService.postUser(user).subscribe((isAdded: boolean) => {
       if (isAdded) {
         this.getAllUsers();
       }
     });
-
   }
 
   public deleteUser(userId: number) {
@@ -62,30 +57,25 @@ export class GamifyContainerComponent implements OnInit {
     });
   }
 
-  showHires(selectedGame: number) {
-
-    this.gameService.getBorrowerByGameId(selectedGame).subscribe((user: UserBusiness) => {
-      this.gameService.getBorrowerByGameId(selectedGame);
+  public showHires(gameId: number) {
+    this.gameService.getBorrowerByGame(gameId).subscribe((user: UserBusiness) => {
+      this.borrower = user;
     });
 
   }
 
-switchStateElementToDisplay(isGameButton: boolean) {
-
-  if (isGameButton) {
-
-    this.displayGames = true;
-    this.displayUsers = false;
-
-  } else {
-
-    this.displayGames = false;
-    this.displayUsers = true;
+  public switchStateElementToDisplay(isGameButton: boolean) {
+    if (isGameButton) {
+      this.displayGames = true;
+      this.displayUsers = false;
+    } else {
+      this.displayGames = false;
+      this.displayUsers = true;
+    }
   }
-}
 
   public displayForm() {
-  this.isFormDisplayed = !this.isFormDisplayed;
-}
-}
+    this.isFormDisplayed = !this.isFormDisplayed;
+  }
 
+}
